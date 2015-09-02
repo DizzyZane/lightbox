@@ -1,0 +1,43 @@
+/*Basic defs*/
+div[lightbox]{position: fixed;left: 100%;width: 100%;background: rgba(0, 0, 0, 0.0);height: 100%;z-index: 999999999;top: 0;-o-transition:transition: .6s ease-out 0s,background .2s linear .6s;-webkit-transition: .6s ease-out 0s,background .6s linear 0s;-moz-transition: .6s ease-out 0s,background .2s linear .6s;transition: .6s ease-out 0s,background .2s linear .6s}
+div[lightbox]:target {background: rgba(0, 0, 0, 0.75);left: 0%!important;z-index: 9999999999;top:0!important}
+div[lightbox] article,div[lightbox] iframe,div[lightbox] video,div[lightbox] canvas,div[lightbox] img {margin: auto;position: absolute;top: 0;left: 0;right: 0;bottom: 0;border: 3px solid snow;max-width:70%;max-height:80%}
+/*Directional buttons*/
+div[lightbox] button{cursor:pointer;text-align:center;font:4em helvetica,arial,freesans,clean,sans-serif;color:snow;border:1px solid snow;background:#000;height:70%;width:10%;position:absolute;top:15%}
+div[lightbox] button[left]{left:5%}
+div[lightbox] button[right]{right:5%}
+div[lightbox] button[up]{top:5%}
+div[lightbox] button[down]{bottom:5%}
+
+div[lightbox] button[left]:before{content:"\0021DA"}
+div[lightbox] button[right]:before{content:"\0021DB"}
+div[lightbox] button[up]:before{content:"\00290A"}
+div[lightbox] button[down]:before{content:"\00290B"}
+/*The meat of the point.*/
+div[lightbox] h1,div[lightbox] h2,div[lightbox] h3{position:absolute;left:15%;right:15%;top:25;color:snow;text-shadow: -2px -2px red, 2px 2px red, 2px -2px red, -2px 2px red, -1px -1px red;}
+
+/*Use your GPU mate*/
+div[lightbox],div[lightbox] *{transform:translate3D(0,0,0);}
+/*Closing and screenarea*/
+div[lightbox] a[href="#screenarea"] {width: 120px;height: 240px;background: white;position: absolute;top:-85px;right:-20px;-webkit-transform: rotate(-45deg);-moz-transform: rotate(-45deg);-ms-transform: rotate(-45deg);-o-transform: rotate(-45deg);transform: rotate3D(0,0,0),rotate(-45deg);nav-index:-1}
+div[lightbox] a[href="#screenarea"]:after{content:"Close";position:absolute;top:85px;left:8px;-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);-ms-transform: rotate(45deg);-o-transform: rotate(45deg);transform: rotate(45deg);font-size:36px;color:black;text-align:right;cursor:pointer;}
+#screenarea{z-index:-1000000;width:1px;height:1px;visibility:hidden;position:fixed;top:0;left:0;color:rgba(255,255,255,0);opacity:0}
+
+/*Starting conditionals*/
+div[lightbox~=left],div[lightbox][id$="-l"]{left:-100%}
+div[lightbox~=top],div[lightbox][id$="-t"]{left:0;top:-100%}
+div[lightbox~=bottom],div[lightbox][id$="-b"]{left:0;top:100%}
+
+div[lightbox~=left]:target,div[lightbox][id$="-l"]:target{left:0%}
+div[lightbox~=top]:target,div[lightbox][id$="-t"]:target{left:0;top:0%}
+div[lightbox~=bottom]:target,div[lightbox][id$="-b"]:target{left:0;top:0%}
+
+div[lightbox~=left] a[href~="#screenarea"],div[lightbox][id$="-l"] a[href~="#screenarea"]{right:0;}
+div[lightbox~=left] a[href~="#screenarea"]:after,div[lightbox][id$="-l"] a[href~="#screenarea"]:after,
+div[lightbox~=bottom] a[href~="#screenarea"]:after,div[lightbox][id$="-b"] a[href~="#screenarea"]:after 
+{left:-8px}
+
+
+
+/*Unselectable*/
+div[lightbox~=unselectable] *,div[lightbox~=unselectable]{-moz-user-select: none;-khtml-user-select: none;-webkit-user-select: none;-ms-user-select: none;user-select: none;cursor:context-menu}
