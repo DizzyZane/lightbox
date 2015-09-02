@@ -41,3 +41,4 @@ div[lightbox~=bottom] a[href~="#screenarea"]:after,div[lightbox][id$="-b"] a[hre
 
 /*Unselectable*/
 div[lightbox~=unselectable] *,div[lightbox~=unselectable]{-moz-user-select: none;-khtml-user-select: none;-webkit-user-select: none;-ms-user-select: none;user-select: none;cursor:context-menu}
+div[lightbox~=inst]{transition:0s 0s}
