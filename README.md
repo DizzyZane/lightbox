@@ -24,10 +24,10 @@ Adding extra properties to the LightBox is quite easy. Just add a set of items t
 
 Effects which direction the LightBox enters from.
 
-* Right (`lightbox="right"` [default])
-* Left (`lightbox="left"`)
-* Top (`lightbox="top"`)
-* Bottom (`lightbox="bottom"`)
+* Right (`lightbox="right"` or add `-r` to end of ID [default])
+* Left (`lightbox="left"` or add `-l` to end of ID)
+* Top (`lightbox="top"` or add `-t` to end of ID)
+* Bottom (`lightbox="bottom"` or add `-b` to end of ID)
 
 #### Selectable
 
