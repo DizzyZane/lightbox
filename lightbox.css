@@ -28,6 +28,7 @@ input+[lightbox]>label[for="remove_lightbox"],[lightbox] > a[href="#screenarea"]
 input:checked+[lightbox]>label[for="remove_lightbox"],[lightbox]:target > a[href="#screenarea"]/*first-child*/:after{display:block}
 
 #screenarea{z-index:-1000000;width:1px;height:1px;visibility:hidden;position:fixed;top:0;left:0;color:rgba(255,255,255,0);opacity:0}
+input[name="lightbox"]{display:none}
 
 /*Starting conditionals*/
 [lightbox*=left],[lightbox][id$="-l"]{left:-100vw}
