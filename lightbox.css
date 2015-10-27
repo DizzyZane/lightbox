@@ -24,8 +24,8 @@ input:checked+[lightbox],[lightbox]:target {background: rgba(0, 0, 0, 0.75);left
 /*Closing and screenarea*/
 input+[lightbox]>label[for="remove_lightbox"],[lightbox] > a[href="#screenarea"]/*:first-child*/{width: 0%;height:100%;background:0 0;background:-webkit-linear-gradient(315deg,rgba(0,0,0,0) 90%,rgb(255,255,255) 0);background:-webkit-linear-gradient(45deg, rgba(0,0,0,0) 90%, rgb(255,255,255) 0);background:linear-gradient(45deg,rgba(0,0,0,0) 90%,rgb(255,255,255) 0);position: absolute;top:0;right:0;nav-index:-1;cursor:context-menu;-webkit-transition:0s .6s;transition:0s .6s;outline-style:none}
 input:checked+[lightbox]>label[for="remove_lightbox"],[lightbox]:target > a[href="#screenarea"]/*:first-child*/{width:100%;}
-input+[lightbox]>label[for="remove_lightbox"],[lightbox] > a[href="#screenarea"]/*:first-child*/:after{content:"Close";position:absolute;top:-40px;right:-50px;-webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);font-size:5vh;color:black;text-align:right;cursor:pointer;display:none;padding:80px}
-input:checked+[lightbox]>label[for="remove_lightbox"],[lightbox]:target > a[href="#screenarea"]/*first-child*/:after{display:block}
+input+[lightbox]>label[for="remove_lightbox"]:after,[lightbox] > a[href="#screenarea"]/*:first-child*/:after{content:"Close";position:absolute;top:-40px;right:-50px;-webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);font-size:5vh;color:black;text-align:right;cursor:pointer;display:none;padding:80px}
+input:checked+[lightbox]>label[for="remove_lightbox"]:after,[lightbox]:target > a[href="#screenarea"]/*first-child*/:after{display:block}
 
 #screenarea{z-index:-1000000;width:1px;height:1px;visibility:hidden;position:fixed;top:0;left:0;color:rgba(255,255,255,0);opacity:0}
 input[name="lightbox"]{display:none}
