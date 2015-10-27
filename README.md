@@ -2,8 +2,6 @@
 
 This is a CSS only implementation of a LightBox. It works near perfectly on many devices, including mobile phones, low end laptops, modern video game consoles and home PCs. Animation not available if not supported by the users browser (IE).<link rel="stylesheet" href="lightbox.css">
 
-## Table of Contents
-
 <div id="toc"><h2>Table of Contents</h2><hr><ul><a href="#creating"><li>Creating a lightbox</li></a><a href="#defining"><li>Defining properties</li></a><a href="#innards"><li>Putting things in the lightbox</li></a><a href="#notrightorder"><li>What happ when I don't put things in the right order?</li></a></ul></div>
 
 * [Creating a LightBox](#creating)
