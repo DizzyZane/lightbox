@@ -1,6 +1,6 @@
 # LightBox CSS
 
-This is a CSS only implementation of a LightBox. It works near perfectly on many devices, including mobile phones, low end laptops, modern video game consoles and home PCs. Animation not available if not supported by the users browser (IE).<link rel="stylesheet" href="lightbox.css">
+This is a CSS only implementation of a LightBox. It works near perfectly on many devices, including mobile phones, low end laptops, modern video game consoles and home PCs. Animation not available if not supported by the users browser (IE).<link rel="stylesheet" href="//raw.githubusercontent.com/DizzyZane/lightbox/master/lightbox.min.css">
 
 ## Table of Contents
 
