@@ -40,21 +40,9 @@
         </div>
 
         <h1>
-<a id="lightbox-css" class="anchor" href="#lightbox-css" aria-hidden="true"><span class="octicon octicon-link"></span></a>LightBox CSS</h1>
-
-<p>This is a CSS only implementation of a LightBox. It works near perfectly on many devices, including mobile phones, low end laptops, modern video game consoles and home PCs. Animation not available if not supported by the users browser (IE).</p>
-
-<div id="toc">
-<h2>
-<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of Contents</h2>
-<hr>
-<ul>
-<a href="#creating"></a><li>Creating a lightbox</li>
-<a href="#defining"></a><li>Defining properties</li>
-<a href="#innards"></a><li>Putting things in the lightbox</li>
-<a href="#notrightorder"></a><li>What happ when I don't put things in the right order?</li>
-</ul>
-</div>
+<body><h1 id="lightbox-css">LightBox CSS</h1>
+<p>This is a CSS only implementation of a LightBox. It works near perfectly on many devices, including mobile phones, low end laptops, modern video game consoles and home PCs. Animation not available if not supported by the users browser (IE).<link rel="stylesheet" href="lightbox.css"></p>
+<div id="toc"><h2>Table of Contents</h2><hr><ul><a href="#creating"><li>Creating a lightbox</li></a><a href="#defining"><li>Defining properties</li></a><a href="#innards"><li>Putting things in the lightbox</li></a><a href="#notrightorder"><li>What happ when I don't put things in the right order?</li></a></ul></div>
 
 <ul>
 <li><a href="#creating">Creating a LightBox</a></li>
@@ -62,123 +50,57 @@
 <li><a href="#innards">Putting things in the LightBox</a></li>
 <li><a href="#notrightorder">What happens when I don't put things in the right order?</a></li>
 </ul>
-
-<h3 id="creating">
-<a id="creating-a-lightbox" class="anchor" href="#creating-a-lightbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a LightBox</h3>
+<h3 id="creating">Creating a LightBox</h3>
 
 <p>Quite simply add <code>lightbox="lightbox"</code> (or just <code>lightbox</code>) to the <code>div</code> or other element you wish to make a LightBox. That's all you require to make a LightBox. Unless you go with the label+input version, where you'll need an input (<code>&lt;input type="radio" name="lightbox" id="lightbox-1"&gt;</code>) followed by the normal lightbox. (<code>&lt;input type="radio" name="lightbox" id="lightbox_lbl"&gt;&lt;lightbox lightbox&gt;&lt;/lightbox&gt;</code>)</p>
+<pre><code><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"radio"</span> <span class="attribute">name</span>=<span class="value">"lightbox"</span> <span class="attribute">id</span>=<span class="value">"lightbox_lbl"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">lightbox</span> <span class="attribute">lightbox</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">label</span> <span class="attribute">for</span>=<span class="value">"remove_lightbox"</span>&gt;</span><span class="tag">&lt;/<span class="title">label</span>&gt;</span>
+ <span class="comment">&lt;!-- Content --&gt;</span>
+<span class="tag">&lt;/<span class="title">lightbox</span>&gt;</span>
 
-<pre><code>&lt;input type="radio" name="lightbox" id="lightbox_lbl"&gt;
-&lt;lightbox lightbox&gt;
- &lt;label for="remove_lightbox"&gt;&lt;/label&gt;
- &lt;!-- Content --&gt;
-&lt;/lightbox&gt;
-
-&lt;lightbox lightbox id="lightbox"&gt;
- &lt;a href="screenarea"&gt;&lt;/a&gt;
-&lt;/lightbox&gt;
-</code></pre>
-
-<p><del>Make sure you add an element that doesn't need to be seen with an ID of <code>screenarea</code> like so: <code>&lt;div id=screenarea &gt;&lt;/div&gt;</code> or <code>&lt;div id="screenarea"&gt;&lt;/div&gt;</code>. This is not seen and should only be used once per page, preferably at the start or end of the document.</del> Completely unneccesary, but still somewhat useful. If you're using the label, put a <code>&lt;input type="radio" name="lightbox" id="remove_lightbox"&gt;</code> at the top of your document.</p><div id="screenarea"></div>
-
+<span class="tag">&lt;<span class="title">lightbox</span> <span class="attribute">lightbox</span> <span class="attribute">id</span>=<span class="value">"lightbox"</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"screenarea"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">lightbox</span>&gt;</span>
+</code></pre><p><del>Make sure you add an element that doesn't need to be seen with an ID of <code>screenarea</code> like so: <code>&lt;div id=screenarea &gt;&lt;/div&gt;</code> or <code>&lt;div id="screenarea"&gt;&lt;/div&gt;</code>. This is not seen and should only be used once per page, preferably at the start or end of the document.</del> Completely unneccesary, but still somewhat useful. If you're using the label, put a <code>&lt;input type="radio" name="lightbox" id="remove_lightbox"&gt;</code> at the top of your document.</p><div id="screenarea"></div><input type="radio" name="lightbox" id="remove_lightbox"><p></p>
 <hr id="defining">
 
-<h3>
-<a id="defining-properties" class="anchor" href="#defining-properties" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining Properties</h3>
-
+<h3 id="defining-properties">Defining Properties</h3>
 <p>Adding extra properties to the LightBox is quite easy. Just add a set of items to the input of the <code>lightbox</code>. Not required thanks to defaults (all defaults are shown), but very useful for controlling the UX.</p>
-
-<h4>
-<a id="directional" class="anchor" href="#directional" aria-hidden="true"><span class="octicon octicon-link"></span></a>Directional</h4>
-
+<h4 id="directional">Directional</h4>
 <p>Effects which direction the LightBox enters from.</p>
-
 <ul>
-<li>Right (<code>lightbox="right"</code> or add <code>-r</code> to end of ID (<code>id="lightbox-r"</code>) {default}). <a href="#lightbox">Demo</a><div id="lightbox">
-<a href="#screenarea"></a><h1>
-<a id="default-lightbox" class="anchor" href="#default-lightbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Default lightbox.</h1>
-</div>
-</li>
-<li>Left (<code>lightbox="left"</code> or add <code>-l</code> to end of ID). <a href="#lightbox-l">Demo</a><div id="lightbox-l">
-<a href="#screenarea"></a><h1>
-<a id="lightbox-from-left" class="anchor" href="#lightbox-from-left" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lightbox from Left.</h1>
-</div>
-</li>
-<li>Top (<code>lightbox="top"</code> or add <code>-t</code> to end of ID). <a href="#lightbox-t">Demo</a><div id="lightbox-t">
-<a href="#screenarea"></a><h1>
-<a id="lightbox-from-top" class="anchor" href="#lightbox-from-top" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lightbox from top.</h1>
-</div>
-</li>
-<li>Bottom (<code>lightbox="bottom"</code> or add <code>-b</code> to end of ID). <a href="#lightbox-b">Demo</a><div id="lightbox-b">
-<a href="#screenarea"></a><h1>
-<a id="lightbox-from-bottom" class="anchor" href="#lightbox-from-bottom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lightbox from bottom.</h1>
-</div>
-</li>
+<li>Right (<code>lightbox="right"</code> or add <code>-r</code> to end of ID (<code>id="lightbox-r"</code>) {default}). <a href="#lightbox">Demo</a><div id="lightbox" lightbox=""><a href="#screenarea"></a><h1>Default lightbox.</h1></div></li>
+<li>Left (<code>lightbox="left"</code> or add <code>-l</code> to end of ID). <a href="#lightbox-l">Demo</a><div id="lightbox-l" lightbox=""><a href="#screenarea"></a><h1>Lightbox from Left.</h1></div></li>
+<li>Top (<code>lightbox="top"</code> or add <code>-t</code> to end of ID). <a href="#lightbox-t">Demo</a><div id="lightbox-t" lightbox=""><a href="#screenarea"></a><h1>Lightbox from top.</h1></div></li>
+<li>Bottom (<code>lightbox="bottom"</code> or add <code>-b</code> to end of ID). <a href="#lightbox-b">Demo</a><div id="lightbox-b" lightbox=""><a href="#screenarea"></a><h1>Lightbox from bottom.</h1></div></li>
 </ul>
-
-<h4>
-<a id="selectable" class="anchor" href="#selectable" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selectable</h4>
-
+<h4 id="selectable">Selectable</h4>
 <p>Specifies whether the user is able to select it or not.</p>
-
 <ul>
-<li>Selectable (<code>lightbox="selectable"</code> {default}). <a href="#lightbox">Demo</a>
-</li>
-<li>Unselectable (<code>lightbox="nosel"</code>). <a href="#lightbox-noselect">Demo</a><div id="lightbox-noselect">
-<a href="#screenarea"></a><h1>
-<a id="unselectable-lightbox" class="anchor" href="#unselectable-lightbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unselectable lightbox.</h1>
-</div>
-</li>
+<li>Selectable (<code>lightbox="selectable"</code> {default}). <a href="#lightbox">Demo</a></li>
+<li>Unselectable (<code>lightbox="nosel"</code>). <a href="#lightbox-noselect">Demo</a><div id="lightbox-noselect" lightbox="nosel"><a href="#screenarea"></a><h1>Unselectable lightbox.</h1></div></li>
 </ul>
-
-<h4>
-<a id="speed" class="anchor" href="#speed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Speed</h4>
-
+<h4 id="speed">Speed</h4>
 <p>Specifies the speed at which the LightBox appears on screen. Always <code>inst</code> if there's no <a href="http://caniuse.com/#feat=css-transitions" target="_blank">support for transition (CSS)</a>.</p>
-
 <ul>
-<li>Normal (<code>lightbox="norm"</code> {default}). <a href="#lightbox">Demo</a>
-</li>
-<li>Fast (<code>lightbox="fast"</code>). <a href="#lightbox-fast">Demo</a><div id="lightbox-fast">
-<a href="#screenarea"></a><h1>
-<a id="fast-lightbox" class="anchor" href="#fast-lightbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fast lightbox.</h1>
-</div>
-</li>
-<li>Slow (<code>lightbox="slow"</code>). <a href="#lightbox-slow">Demo</a><div id="lightbox-slow">
-<a href="#screenarea"></a><h1>
-<a id="slow-lightbox" class="anchor" href="#slow-lightbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Slow lightbox.</h1>
-</div>
-</li>
-<li>Instant (<code>lightbox="inst"</code>). <a href="#lightbox-inst">Demo</a><div id="lightbox-inst">
-<a href="#screenarea"></a><h1>
-<a id="instant-lightbox" class="anchor" href="#instant-lightbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instant lightbox.</h1>
-</div>
-</li>
+<li>Normal (<code>lightbox="norm"</code> {default}). <a href="#lightbox">Demo</a></li>
+<li>Fast (<code>lightbox="fast"</code>). <a href="#lightbox-fast">Demo</a><div id="lightbox-fast" lightbox="fast"><a href="#screenarea"></a><h1>Fast lightbox.</h1></div></li>
+<li>Slow (<code>lightbox="slow"</code>). <a href="#lightbox-slow">Demo</a><div id="lightbox-slow" lightbox="slow"><a href="#screenarea"></a><h1>Slow lightbox.</h1></div></li>
+<li>Instant (<code>lightbox="inst"</code>). <a href="#lightbox-inst">Demo</a><div id="lightbox-inst" lightbox="inst"><a href="#screenarea"></a><h1>Instant lightbox.</h1></div></li>
 </ul>
-
 <p>Starting time (amount of wind-up)</p>
-
 <ul>
 <li>None (<code>lightbox="inst_start"</code> [default])</li>
 </ul>
-
 <p>Can also be specified by radio inputs with ids of <code>lightfast</code>, <code>lightnorm</code>, <code>lightslow</code>, <code>lightinst</code>. Not required and completely optional.</p>
-
 <hr id="innards">
 
-<h3>
-<a id="putting-things-in-the-lightbox" class="anchor" href="#putting-things-in-the-lightbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Putting things in the LightBox</h3>
-
+<h3 id="putting-things-in-the-lightbox">Putting things in the LightBox</h3>
 <p>These are the things you put inside the LightBox. These are heavily recommended and, although not required for it to work, will greatly increase the experience the user recieves.</p>
-
-<h4>
-<a id="close" class="anchor" href="#close" aria-hidden="true"><span class="octicon octicon-link"></span></a>Close</h4>
-
+<h4 id="close">Close</h4>
 <p>This is of utmost importance. If this is not included then it will fail to perform its function properly. Define using <code>&lt;a href="#screenarea"/&gt;</code>. It'll automatically add close. You can style it using the below:</p>
-
-<h5>
-<a id="styles-of-closing-banner" class="anchor" href="#styles-of-closing-banner" aria-hidden="true"><span class="octicon octicon-link"></span></a>Styles of Closing banner:</h5>
-
+<h5 id="styles-of-closing-banner-">Styles of Closing banner:</h5>
 <ul>
 <li>Normal, changes to look its best (<code>lb_close=""</code> or <code>lb_close</code> {default, will change to match one of the below based on the direction the lightbox enters from. Doesn't need to be defined.}) <a href="#lightbox">Demo</a>.</li>
 <li>Top-Right (<code>lb_close="tr"</code>)</li>
@@ -186,91 +108,47 @@
 <li>Bottom-Left (<code>lb_close="bl"</code>)</li>
 <li>Bottom-Right (<code>lb_close="br"</code>)</li>
 </ul>
-
 <p>I do plan on adding more soon, such as colours, capitalisation and <code>:hover</code> options (<code>lb_closeh</code>). If you couldn't guess, this uses the <code>::before</code> and <code>::after</code> pseudo elements for its main part.</p>
-
-<h3 id="addingcontent">
-<a id="content" class="anchor" href="#content" aria-hidden="true"><span class="octicon octicon-link"></span></a>Content</h3>
+<h3 id="addingcontent">Content</h3>
 
 <p>The utmost important piece. Without this it's literally useless.</p>
-
 <p>Directly supported elements:</p>
-
 <ul>
-<li>
-<code>article</code>. <a href="#lightbox-article">Demo</a><div id="lightbox-article">
-<a href="#screenarea"></a> This is an <code>Article</code> element. <div id="lipsum"> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dapibus, purus ac rutrum hendrerit, nisl est viverra elit, et viverra arcu dolor nec lorem. Vestibulum at mollis lectus. Sed vel pretium ipsum. Vestibulum eu molestie ipsum, a interdum orci. Nulla erat neque, pellentesque eu accumsan maximus, fringilla vitae neque. Vivamus egestas mauris sed lacus rutrum eleifend. Nunc congue aliquet risus, vel condimentum arcu sollicitudin ac. Sed sed neque id felis malesuada tempus. Aenean ac magna consequat, sodales enim sed, molestie lacus. </p> <p> Vivamus efficitur rutrum urna, mattis pharetra dui tincidunt et. Suspendisse eget pellentesque lectus. Suspendisse feugiat leo ac faucibus commodo. In mattis, enim ut iaculis faucibus, sapien felis finibus nisl, eu tempus massa justo id enim. Donec id volutpat ipsum, id luctus dui. Quisque turpis risus, cursus a consectetur a, aliquet ac nisi. Praesent bibendum dui ac arcu molestie, sed lobortis mi facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et pulvinar eros, in sagittis mauris. </p> <p> Suspendisse rutrum sit amet turpis consequat volutpat. Curabitur pellentesque nisi rhoncus, ultricies magna ac, mattis erat. Vivamus ante ipsum, tincidunt sollicitudin ultricies in, pellentesque imperdiet turpis. Vestibulum lacinia fringilla nisl, ut tincidunt ligula ullamcorper sit amet. Ut vitae lacus non libero aliquam tempus vitae sit amet nisi. Aenean non molestie ante, ac tincidunt urna. Suspendisse imperdiet augue accumsan magna ullamcorper mattis. Curabitur efficitur condimentum nulla et tristique. Quisque egestas vehicula molestie. Suspendisse at enim felis. Nullam vitae lorem ornare, finibus arcu eget, mollis diam. Vivamus eu metus eget neque suscipit cursus et vel augue. Morbi rhoncus congue luctus. Sed non ante pharetra, molestie tortor non, pellentesque ex. Aliquam a nisi neque. Nulla porta pretium massa vel ultrices. </p> <p> Etiam tellus lectus, laoreet quis sem non, vulputate maximus augue. In non volutpat sapien, vel laoreet tortor. Cras id mi at dolor aliquet ultricies non nec enim. Quisque ut commodo ipsum, ac tempus leo. Nam eget purus a urna pellentesque sagittis id sed felis. Sed vulputate eu dui eget ornare. Mauris dictum rutrum interdum. Curabitur fermentum diam at dui pellentesque, vel mattis ipsum venenatis. In ut erat quam. Vestibulum blandit tristique sapien id posuere. Mauris malesuada dapibus est, dignissim cursus purus ullamcorper in. Suspendisse at nunc ex. Donec in ultrices augue. </p> <p> Pellentesque consequat eget risus sit amet vulputate. Etiam efficitur augue eu viverra scelerisque. Sed scelerisque fringilla ullamcorper. Pellentesque sodales odio et purus egestas, ultrices fringilla tellus blandit. Nam ullamcorper sem et nunc elementum, a lacinia felis pellentesque. Aenean quis sapien vitae ligula cursus consectetur non at sapien. Sed viverra vitae tortor id condimentum. Nullam non vulputate massa. </p> <p> Etiam et odio facilisis, lacinia ligula et, tincidunt lectus. In tincidunt tortor accumsan, semper ipsum pulvinar, mattis dolor. Donec non enim eu nisi congue viverra non porttitor ex. Cras mi tellus, lacinia vel ipsum ac, feugiat tempus sapien. Fusce bibendum malesuada libero eget eleifend. Integer elementum est nisi. Donec vel congue dui, vel iaculis ipsum. Duis scelerisque eget tellus ac luctus. Mauris a mi ante. </p> <p> Vestibulum eget justo in nisl dignissim tincidunt a et sem. Sed ullamcorper euismod nisl nec facilisis. Fusce ultricies urna quam, quis aliquet enim facilisis id. Donec ac lorem metus. Quisque blandit ut odio vitae luctus. Suspendisse interdum risus vitae leo iaculis, lacinia tempus erat pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat pellentesque nibh nec varius. Sed sed imperdiet augue. Donec sagittis facilisis tempor. </p> <p> Nullam id est lacinia, elementum nulla id, varius nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Mauris accumsan orci in ipsum condimentum dictum. Phasellus volutpat id quam dapibus lacinia. Suspendisse at vehicula dolor. Nullam pellentesque vitae dui et venenatis. Proin sit amet cursus purus. Nullam quis porta tellus. Morbi vestibulum dui quis nisi lobortis condimentum. </p> <p> Nulla consectetur, eros quis consequat consectetur, purus eros porttitor nunc, at consectetur nisi mi lobortis ante. Etiam a auctor arcu, vitae viverra sapien. Nunc euismod, purus eu faucibus pulvinar, nunc erat egestas metus, in ultrices elit mi sit amet tellus. Sed in interdum arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut gravida sed diam quis fermentum. Praesent interdum lectus sodales efficitur semper. Mauris finibus aliquet leo, vitae lacinia dolor porta vitae. </p> <p> Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean tristique erat sed orci convallis, non tincidunt nunc varius. Nunc efficitur eros eu dui auctor, ac scelerisque nibh varius. Fusce quis aliquam orci. Duis aliquam eros lectus, commodo iaculis justo vulputate eu. Aliquam ultrices, risus ac cursus pellentesque, orci justo facilisis mi, ac tincidunt neque est non felis. Nullam dictum purus sed justo viverra efficitur. Proin sollicitudin risus eu condimentum efficitur. Donec malesuada, leo sit amet facilisis dignissim, orci augue efficitur nulla, vel pharetra elit dui sit amet magna. Praesent eget sagittis est. Nunc dapibus auctor ante eget tincidunt. Sed dapibus porttitor ex. </p>
-</div> <h1>
-<a id="article-lightbox" class="anchor" href="#article-lightbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Article lightbox.</h1>
-</div>
-</li>
-<li>
-<code>img</code>. <a href="#lightbox-img">Demo</a><div id="lightbox-img">
-<a href="#screenarea"></a><img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Composite_Image_of_NGC_300.jpg"><h1>
-<a id="lightbox-with-an-img" class="anchor" href="#lightbox-with-an-img" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lightbox with an img.</h1>
-</div>
-</li>
-<li>
-<code>video</code> (removed due to issues with github) <code>(Won't be displayed if</code>autoplay<code>attribute is found.). [Demo](#lightbox-video)&lt;div id="lightbox-video" lightbox&gt;&lt;a href="#screenarea"&gt;&lt;/a&gt;&lt;h1&gt;Lightbox with video.&lt;/h1&gt;&lt;video preload="auto" width="100%" height="100%" allowfullscreen controls&gt;&lt;source src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Artist%E2%80%99s_impression_of_the_black_hole_inside_NGC_300_X-1_%28ESO_1004a%29.webm" type="video/mp4"&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Artist%E2%80%99s_impression_of_the_black_hole_inside_NGC_300_X-1_%28ESO_1004a%29.webm/1280px--Artist%E2%80%99s_impression_of_the_black_hole_inside_NGC_300_X-1_%28ESO_1004a%29.webm.jpg"&gt;&lt;/video&gt;&lt;/div&gt;</code>
-</li>
-<li>
-<code>iframe</code> (issues with github, removed) <code>(View LightBox\_Rules.md for more). [Demo](#lightbox-iframe)&lt;div id="lightbox-iframe" lightbox&gt;&lt;a href="#screenarea"&gt;&lt;/a&gt;&lt;!--&lt;iframe width="100%" height="100%" src="http://simple.wikipedia.org/wiki/Main_Page" srcdoc="&lt;a href='http://simple.wikipedia.org/wiki/Main_Page'&gt;Click to view a Wikipedia&lt;/a&gt;&lt;meta http-equiv=&amp;quot;refresh&amp;quot; content=&amp;quot;10;URL='http://simple.wikipedia.org/wiki/Main_Page'&amp;quot;/&gt;"&gt;&lt;/iframe&gt;--&gt;&lt;h1&gt;iFrame lightbox - Removed due to github issues.&lt;/h1&gt;&lt;/div&gt;</code>
-</li>
-<li>
-<code>canvas</code> (Define a width and height. Will be scaled to fit the limits)</li>
+<li><code>article</code>. <a href="#lightbox-article">Demo</a><div id="lightbox-article" lightbox=""><a href="#screenarea"></a><article>This is an <code>Article</code> element. <div id="lipsum"> <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dapibus, purus ac rutrum hendrerit, nisl est viverra elit, et viverra arcu dolor nec lorem. Vestibulum at mollis lectus. Sed vel pretium ipsum. Vestibulum eu molestie ipsum, a interdum orci. Nulla erat neque, pellentesque eu accumsan maximus, fringilla vitae neque. Vivamus egestas mauris sed lacus rutrum eleifend. Nunc congue aliquet risus, vel condimentum arcu sollicitudin ac. Sed sed neque id felis malesuada tempus. Aenean ac magna consequat, sodales enim sed, molestie lacus. </p> <p> Vivamus efficitur rutrum urna, mattis pharetra dui tincidunt et. Suspendisse eget pellentesque lectus. Suspendisse feugiat leo ac faucibus commodo. In mattis, enim ut iaculis faucibus, sapien felis finibus nisl, eu tempus massa justo id enim. Donec id volutpat ipsum, id luctus dui. Quisque turpis risus, cursus a consectetur a, aliquet ac nisi. Praesent bibendum dui ac arcu molestie, sed lobortis mi facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et pulvinar eros, in sagittis mauris. </p> <p> Suspendisse rutrum sit amet turpis consequat volutpat. Curabitur pellentesque nisi rhoncus, ultricies magna ac, mattis erat. Vivamus ante ipsum, tincidunt sollicitudin ultricies in, pellentesque imperdiet turpis. Vestibulum lacinia fringilla nisl, ut tincidunt ligula ullamcorper sit amet. Ut vitae lacus non libero aliquam tempus vitae sit amet nisi. Aenean non molestie ante, ac tincidunt urna. Suspendisse imperdiet augue accumsan magna ullamcorper mattis. Curabitur efficitur condimentum nulla et tristique. Quisque egestas vehicula molestie. Suspendisse at enim felis. Nullam vitae lorem ornare, finibus arcu eget, mollis diam. Vivamus eu metus eget neque suscipit cursus et vel augue. Morbi rhoncus congue luctus. Sed non ante pharetra, molestie tortor non, pellentesque ex. Aliquam a nisi neque. Nulla porta pretium massa vel ultrices. </p> <p> Etiam tellus lectus, laoreet quis sem non, vulputate maximus augue. In non volutpat sapien, vel laoreet tortor. Cras id mi at dolor aliquet ultricies non nec enim. Quisque ut commodo ipsum, ac tempus leo. Nam eget purus a urna pellentesque sagittis id sed felis. Sed vulputate eu dui eget ornare. Mauris dictum rutrum interdum. Curabitur fermentum diam at dui pellentesque, vel mattis ipsum venenatis. In ut erat quam. Vestibulum blandit tristique sapien id posuere. Mauris malesuada dapibus est, dignissim cursus purus ullamcorper in. Suspendisse at nunc ex. Donec in ultrices augue. </p> <p> Pellentesque consequat eget risus sit amet vulputate. Etiam efficitur augue eu viverra scelerisque. Sed scelerisque fringilla ullamcorper. Pellentesque sodales odio et purus egestas, ultrices fringilla tellus blandit. Nam ullamcorper sem et nunc elementum, a lacinia felis pellentesque. Aenean quis sapien vitae ligula cursus consectetur non at sapien. Sed viverra vitae tortor id condimentum. Nullam non vulputate massa. </p> <p> Etiam et odio facilisis, lacinia ligula et, tincidunt lectus. In tincidunt tortor accumsan, semper ipsum pulvinar, mattis dolor. Donec non enim eu nisi congue viverra non porttitor ex. Cras mi tellus, lacinia vel ipsum ac, feugiat tempus sapien. Fusce bibendum malesuada libero eget eleifend. Integer elementum est nisi. Donec vel congue dui, vel iaculis ipsum. Duis scelerisque eget tellus ac luctus. Mauris a mi ante. </p> <p> Vestibulum eget justo in nisl dignissim tincidunt a et sem. Sed ullamcorper euismod nisl nec facilisis. Fusce ultricies urna quam, quis aliquet enim facilisis id. Donec ac lorem metus. Quisque blandit ut odio vitae luctus. Suspendisse interdum risus vitae leo iaculis, lacinia tempus erat pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat pellentesque nibh nec varius. Sed sed imperdiet augue. Donec sagittis facilisis tempor. </p> <p> Nullam id est lacinia, elementum nulla id, varius nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Mauris accumsan orci in ipsum condimentum dictum. Phasellus volutpat id quam dapibus lacinia. Suspendisse at vehicula dolor. Nullam pellentesque vitae dui et venenatis. Proin sit amet cursus purus. Nullam quis porta tellus. Morbi vestibulum dui quis nisi lobortis condimentum. </p> <p> Nulla consectetur, eros quis consequat consectetur, purus eros porttitor nunc, at consectetur nisi mi lobortis ante. Etiam a auctor arcu, vitae viverra sapien. Nunc euismod, purus eu faucibus pulvinar, nunc erat egestas metus, in ultrices elit mi sit amet tellus. Sed in interdum arcu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut gravida sed diam quis fermentum. Praesent interdum lectus sodales efficitur semper. Mauris finibus aliquet leo, vitae lacinia dolor porta vitae. </p> <p> Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean tristique erat sed orci convallis, non tincidunt nunc varius. Nunc efficitur eros eu dui auctor, ac scelerisque nibh varius. Fusce quis aliquam orci. Duis aliquam eros lectus, commodo iaculis justo vulputate eu. Aliquam ultrices, risus ac cursus pellentesque, orci justo facilisis mi, ac tincidunt neque est non felis. Nullam dictum purus sed justo viverra efficitur. Proin sollicitudin risus eu condimentum efficitur. Donec malesuada, leo sit amet facilisis dignissim, orci augue efficitur nulla, vel pharetra elit dui sit amet magna. Praesent eget sagittis est. Nunc dapibus auctor ante eget tincidunt. Sed dapibus porttitor ex. </p></div></article><h1>Article lightbox.</h1></div></li>
+<li><code>img</code>. <a href="#lightbox-img">Demo</a><div id="lightbox-img" lightbox=""><a href="#screenarea"></a><img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Composite_Image_of_NGC_300.jpg"><h1>Lightbox with an img.</h1></div></li>
+<li><code>video</code> (removed due to issues with github) <code>(Won't be displayed if</code>autoplay<code>attribute is found.). [Demo](#lightbox-video)&lt;div id="lightbox-video" lightbox&gt;&lt;a href="#screenarea"&gt;&lt;/a&gt;&lt;h1&gt;Lightbox with video.&lt;/h1&gt;&lt;video preload="auto" width="100%" height="100%" allowfullscreen controls&gt;&lt;source src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Artist%E2%80%99s_impression_of_the_black_hole_inside_NGC_300_X-1_%28ESO_1004a%29.webm" type="video/mp4"&gt;&lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Artist%E2%80%99s_impression_of_the_black_hole_inside_NGC_300_X-1_%28ESO_1004a%29.webm/1280px--Artist%E2%80%99s_impression_of_the_black_hole_inside_NGC_300_X-1_%28ESO_1004a%29.webm.jpg"&gt;&lt;/video&gt;&lt;/div&gt;</code></li>
+<li><code>iframe</code> (issues with github, removed) <code>(View LightBox\_Rules.md for more). [Demo](#lightbox-iframe)&lt;div id="lightbox-iframe" lightbox&gt;&lt;a href="#screenarea"&gt;&lt;/a&gt;&lt;!--&lt;iframe width="100%" height="100%" src="http://simple.wikipedia.org/wiki/Main_Page" srcdoc="&lt;a href='http://simple.wikipedia.org/wiki/Main_Page'&gt;Click to view a Wikipedia&lt;/a&gt;&lt;meta http-equiv=&amp;quot;refresh&amp;quot; content=&amp;quot;10;URL='http://simple.wikipedia.org/wiki/Main_Page'&amp;quot;/&gt;"&gt;&lt;/iframe&gt;--&gt;&lt;h1&gt;iFrame lightbox - Removed due to github issues.&lt;/h1&gt;&lt;/div&gt;</code></li>
+<li><code>canvas</code> (Define a width and height. Will be scaled to fit the limits)</li>
 </ul>
-
 <p>Elements supported by wrapping in <code>article</code>:</p>
-
 <ul>
-<li>
-<code>audio</code> (Requires <code>controls</code> and no <code>autoplay</code>.)</li>
+<li><code>audio</code> (Requires <code>controls</code> and no <code>autoplay</code>.)</li>
 </ul>
-
-<h4>
-<a id="title" class="anchor" href="#title" aria-hidden="true"><span class="octicon octicon-link"></span></a>Title</h4>
-
-<h4>
-<a id="gallery" class="anchor" href="#gallery" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gallery</h4>
-
+<h4 id="title">Title</h4>
+<h4 id="gallery">Gallery</h4>
 <p>Tools for creating a gallery in the box. Note that these do require you to create your own links to other parts of the gallery.</p>
-
 <ul>
 <li>Button Right (<code>lb_right=""</code> or <code>lb_right</code>)</li>
 <li>Button Left (<code>lb_left=""</code> or <code>lb_left</code>)</li>
 <li>Button Down (<code>lb_down=""</code> or <code>lb_down</code>)</li>
 <li>Button Up (<code>lb_up=""</code> or <code>lb_up</code>)</li>
 </ul>
-
 <hr id="notrightorder">
 
-<h3>
-<a id="what-happens-when-i-dont-put-things-in-the-right-order" class="anchor" href="#what-happens-when-i-dont-put-things-in-the-right-order" aria-hidden="true"><span class="octicon octicon-link"></span></a>What happens when I don't put things in the right order?</h3>
-
+<h3 id="what-happens-when-i-don-t-put-things-in-the-right-order-">What happens when I don't put things in the right order?</h3>
 <p>Don't worry! I have fallbacks!</p>
-
 <p>The order:</p>
-
-<pre><code>&lt;div id="lightbox" lightbox&gt;
- &lt;a href="screenarea"&gt;&lt;/a&gt;
- &lt;article&gt;Content goes here in places of article&lt;/article&gt;
- &lt;h1&gt;This is the title&lt;/h1&gt;
- &lt;!-- Links to other places are here --&gt;
-&lt;/div&gt;
-</code></pre>
-
-<p><a href="#lightbox">One like this</a></p>
-
-<p>Now, <a href="#lightbox-bad">One that missed the memo</a></p><div id="lightbox-bad">
-<h1>
-<a id="somethings-different-about-this-lightbox" class="anchor" href="#somethings-different-about-this-lightbox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Something's different about this lightbox.</h1>
-<a href="#screenarea"></a>
-</div>
-
+<pre><code><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"lightbox"</span> <span class="attribute">lightbox</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"screenarea"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">article</span>&gt;</span>Content goes here in places of article<span class="tag">&lt;/<span class="title">article</span>&gt;</span>
+ <span class="tag">&lt;<span class="title">h1</span>&gt;</span>This is the title<span class="tag">&lt;/<span class="title">h1</span>&gt;</span>
+ <span class="comment">&lt;!-- Links to other places are here --&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre><p><a href="#lightbox">One like this</a></p>
+<p>Now, <a href="#lightbox-bad">One that missed the memo</a></p><div id="lightbox-bad" lightbox=""><h1>Something's different about this lightbox.</h1><a href="#screenarea"></a></div><p></p>
 <p>As you can see, it's not exactly the end of the world with it.</p>
-
 <p><a href="#addingcontent">Adding content</a></p>
-      </section>
+</section>
 
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
