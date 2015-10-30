@@ -4,3 +4,5 @@ code{white-space:pre-wrap;word-wrap:break-word;}
 
 @media screen and (min-width:641px){#toc{position:fixed;right:0;top:0;height:100vh;width:13vw;border:0;border-left:3px double #000;background-color:#333;max-height:100%;overflow-y:scroll;padding:0;margin:0;border-radius:0}#toc{padding:10px!important;font-size:12px!important;display:block!important;position:fixed!important;bottom:0!important;height:100%!important;right:-200px!important;width:245px!important;transition:all .66s ease-in-out!important;opacity:0!important;overflow-y:auto!important;z-index:9999;border:none!important;border-left:#555!important;background:#222!important;box-shadow:1px 0 6px rgba(0,0,0,.25)!important}#toc:hover,#toc:target{right:0!important;transition:all .15s ease-in-out!important;opacity:1!important}
 .portraitonly,[portraitonly]{display:none}}
+#header{transition:.3s ease-out .1s;}
+hr:target~#header{top:-60px;transition:.1s linear 0s;}
