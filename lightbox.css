@@ -53,9 +53,9 @@ input:checked+[lightbox]>label[for="remove_lightbox"]:after,[lightbox]:target > 
 input[name="lightbox"]{display:none}
 
 /*Starting conditionals*/
-input[id$="-l"]+[lightbox],[lightbox*=left],[lightbox][id$="-l"]{left:-100vw}
-input[id$="-t"]+[lightbox],[lightbox*=top],[lightbox][id$="-t"]{left:0;top:-100vh}
-input[id$="-b"]+[lightbox],[lightbox*=bottom],[lightbox][id$="-b"]{left:0;top:100vh}
+input[id$="-l"]+[lightbox],[lightbox*=left],[lightbox][id$="-l"]{left:-100vw!important}
+input[id$="-t"]+[lightbox],[lightbox*=top],[lightbox][id$="-t"]{left:0!important;top:-100vh}
+input[id$="-b"]+[lightbox],[lightbox*=bottom],[lightbox][id$="-b"]{left:0!important}
 
 input:checked+[lightbox*="left"],[lightbox*="left"]:target,input[id$="-l"]:checked+[lightbox],[lightbox][id$="-l"]:target{left:0vw}
 input:checked+[lightbox*="top"],[lightbox*="top"]:target,input[id$="-t"]:checked+[lightbox],[lightbox][id$="-t"]:target{left:0;top:0vw}
